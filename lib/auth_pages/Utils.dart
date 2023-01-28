@@ -1,0 +1,21 @@
+// ignore: file_names
+// ignore_for_file: file_names, duplicate_ignore
+
+import 'package:flutter/material.dart';
+
+class Utils {
+ static final messengerKey = GlobalKey<ScaffoldMessengerState>();
+
+  static showSnackBar(String? text) {
+    if (text == null) return;
+
+    final snackBar = SnackBar(
+      content: Text(text),
+      backgroundColor: Colors.red,
+    );
+
+    messengerKey.currentState!
+      ..removeCurrentSnackBar()
+      ..showSnackBar(snackBar);
+  }
+}
